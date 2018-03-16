@@ -15,10 +15,11 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
  * <p>
  * class_comment
  * </p>
- * <b>Create Time:</b> 2017/5/30 11:48
+ * <b>Create Time:</b> 2018/3/16 11:48
  *
  * @author sunjinpeng
  * @version 0.1.0
+ * @since demo 0.1.0
  */
 @Configuration
 @EnableSwagger2
@@ -28,6 +29,7 @@ public class SwaggerConfig {
      * Create rest api docket.
      *
      * @return the docket
+     * @since demo 0.1.0
      */
     @Bean
     public Docket createRestApi() {
@@ -44,6 +46,7 @@ public class SwaggerConfig {
      * Api info api info.
      *
      * @return the api info
+     * @since demo 0.1.0
      */
     private ApiInfo apiInfo() {
         return new ApiInfoBuilder()

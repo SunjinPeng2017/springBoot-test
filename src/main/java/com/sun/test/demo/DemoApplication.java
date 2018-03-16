@@ -1,3 +1,4 @@
+
 package com.sun.test.demo;
 
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -10,6 +11,17 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 import org.apache.tomcat.jdbc.pool.DataSource;
 
+/**
+ * <b><code>DemoApplication</code></b>
+ * <p>
+ * class_comment
+ * </p>
+ * <b>Create Time:</b> 2018/3/16 14:48
+ *
+ * @author sunjinpeng
+ * @version 0.1.0
+ * @since demo 0.1.0
+ */
 // 配置springBoot 扫描bean 路径
 @SpringBootApplication(scanBasePackages = {"com.sun.*"})
 // 配置mybatis namespace路径
@@ -20,6 +32,7 @@ public class DemoApplication {
 	 * DataSource配置
 	 *
 	 * @return the data source
+	 * @since demo 0.1.0
 	 */
 	@Bean
 	@ConfigurationProperties(prefix = "spring.datasource")
@@ -32,6 +45,7 @@ public class DemoApplication {
 	 *
 	 * @return the sql session factory
 	 * @throws Exception the exception
+	 * @since demo 0.1.0
 	 */
 	@Bean
 	public SqlSessionFactory sqlSessionFactoryBean() throws Exception {
@@ -44,6 +58,11 @@ public class DemoApplication {
 		return sqlSessionFactoryBean.getObject();
 	}
 
+	/**
+	 * main 函数，程序入口
+	 * @param args string[]
+	 * @since demo 0.1.0
+	 */
 	public static void main(String[] args) {
 		SpringApplication.run(DemoApplication.class, args);
 	}
