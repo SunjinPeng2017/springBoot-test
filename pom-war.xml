@@ -113,10 +113,21 @@
 	</dependencies>
 
 	<build>
+		<finalName>demo</finalName>
 		<plugins>
+			<!-- 添加maven中的Tomcat插件 -->
 			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
+				<groupId>org.apache.tomcat.maven</groupId>
+				<artifactId>tomcat7-maven-plugin</artifactId>
+				<version>2.2</version>
+				<configuration>
+					<!-- 配置Tomcat 的用户密码-->
+					<path>/${project.build.finalName}</path>
+					<url>${tomcat-url}</url>
+					<username>${tomcat-username}</username>
+					<password>${tomcat-password}</password>
+					<update>true</update>
+				</configuration>
 			</plugin>
 		</plugins>
 		<!-- 配置多环境资源 -->
@@ -132,7 +143,11 @@
 		<profile>
 			<id>dev</id>
 			<properties>
+				<!-- 添加开发环境的Tomcat信息 -->
 				<activatedProperties>dev</activatedProperties>
+				<tomcat-url>http://localhost:8080/manager/text</tomcat-url>
+				<tomcat-username>tomcat</tomcat-username>
+				<tomcat-password>tomcatuser</tomcat-password>
 			</properties>
 			<activation>
 				<!-- 默认环境 -->
